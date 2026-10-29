@@ -1,0 +1,20 @@
+# Kioskitos
+
+Kioskitos monorepo.
+
+## Structure
+- `/frontend` – Next.js
+- `/backend` – .NET Web API
+
+## Workflow
+- `main` is protected: direct commits are not allowed.
+- Every change goes through a Pull Request with at least 1 approval.
+
+## Branch naming
+- `feat/<ticket>-<description>`  → e.g. `feat/KIOS-12-user-login`
+- `fix/<ticket>-<description>`   → e.g. `fix/KIOS-30-cart-error`
+
+Rules: lowercase, words separated by hyphens, no spaces.
+
+## Environment variables
+Never commit `.env` files. Use `.env.example` as a reference.

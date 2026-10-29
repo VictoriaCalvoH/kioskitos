@@ -1,0 +1,28 @@
+# env vars
+.env
+.env.*
+!.env.example
+
+# Node / Next.js
+node_modules/
+.next/
+out/
+npm-debug.log*
+yarn-error.log*
+.pnpm-store/
+
+# .NET
+bin/
+obj/
+*.user
+*.suo
+.vs/
+*.dbmdl
+appsettings.Development.json
+TestResults/
+
+# IDEs / OS
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
