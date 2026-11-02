@@ -24,8 +24,8 @@ public sealed class ExceptionHandlingMiddleware(
             await Results.Problem(
                 statusCode: StatusCodes.Status500InternalServerError,
                 type: "about:blank",
-                title: "Error interno del servidor",
-                detail: "Ocurrió un error inesperado. Intentá nuevamente más tarde.",
+                title: "Internal server error",
+                detail: "An unexpected error occurred. Please try again later.",
                 instance: context.Request.Path.Value,
                 extensions: new Dictionary<string, object?>
                 {

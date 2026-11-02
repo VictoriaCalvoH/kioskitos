@@ -17,7 +17,7 @@ builder.Services.AddSwaggerGen(options =>
     {
         Title = "Kioskitos API",
         Version = "v1",
-        Description = "API del sistema Kioskitos."
+        Description = "Kioskitos system API."
     });
 });
 

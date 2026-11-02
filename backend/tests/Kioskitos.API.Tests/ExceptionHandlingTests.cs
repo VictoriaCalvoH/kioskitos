@@ -51,10 +51,10 @@ public sealed class ExceptionHandlingTests(
             document.RootElement.GetProperty("status").GetInt32());
 
         Assert.Equal(
-            "Error interno del servidor",
+            "Internal server error",
             document.RootElement.GetProperty("title").GetString());
 
-        Assert.DoesNotContain("detalle privado de prueba", body);
+        Assert.DoesNotContain("private test details", body);
     }
 
     private sealed class ThrowingFilter : IAsyncActionFilter
@@ -64,7 +64,7 @@ public sealed class ExceptionHandlingTests(
             ActionExecutionDelegate next)
         {
             throw new InvalidOperationException(
-                "detalle privado de prueba");
+                "private test details");
         }
     }
 }
