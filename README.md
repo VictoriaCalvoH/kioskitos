@@ -46,6 +46,24 @@ Use hyphen-separated words and avoid spaces.
 
 Do not commit `.env` files. Use `.env.example` files as references.
 
+## Local development with Docker
+
+Create the local environment file from the example and start all services:
+
+```bash
+cp .env.example .env
+docker compose up --build
+```
+
+The services are available at:
+
+- Frontend: [http://localhost:3000](http://localhost:3000)
+- Backend: [http://localhost:8080](http://localhost:8080)
+- PostgreSQL: `localhost:5432`
+
+PostgreSQL data is persisted in the `postgres_data` Docker volume. The backend
+waits for PostgreSQL to pass its health check before starting.
+
 ## Frontend
 
 For frontend configuration and available commands, see
