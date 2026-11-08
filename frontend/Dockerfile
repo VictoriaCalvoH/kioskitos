@@ -18,6 +18,10 @@ ENV NEXT_TELEMETRY_DISABLED=1
 ENV PORT=3000
 EXPOSE 3000
 
+RUN apk update \
+    && apk upgrade \
+    && rm -rf /var/cache/apk/*
+
 COPY --from=build /app/.next ./.next
 COPY --from=build /app/node_modules ./node_modules
 COPY --from=build /app/package.json ./package.json
