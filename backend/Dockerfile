@@ -20,5 +20,9 @@ WORKDIR /app
 ENV ASPNETCORE_HTTP_PORTS=8080
 EXPOSE 8080
 
+RUN apt-get update \
+    && apt-get upgrade -y \
+    && rm -rf /var/lib/apt/lists/*
+
 COPY --from=build /app/publish .
 ENTRYPOINT ["dotnet", "Kioskitos.API.dll"]
