@@ -64,6 +64,35 @@ The services are available at:
 PostgreSQL data is persisted in the `postgres_data` Docker volume. The backend
 waits for PostgreSQL to pass its health check before starting.
 
+## Database migrations
+
+EF Core Tools are installed as a local tool (`backend/.config/dotnet-tools.json`).
+From `backend/`:
+
+```bash
+dotnet tool restore
+docker compose -f ../docker-compose.yml up -d postgres
+set -a; source ../.env; set +a   # loads ConnectionStrings__Default
+
+dotnet ef database update \
+  --project src/Kioskitos.Infrastructure \
+  --startup-project src/Kioskitos.API
+```
+
+To create a new migration:
+
+```bash
+dotnet ef migrations add <Name> \
+  --project src/Kioskitos.Infrastructure \
+  --startup-project src/Kioskitos.API \
+  --output-dir Persistence/Migrations
+```
+
+## Integration tests
+
+Tests that need the database read `ConnectionStrings__Default` and are skipped
+when it is not set. With Postgres running and `.env` loaded: `dotnet test`.
+
 ## Frontend
 
 For frontend configuration and available commands, see
